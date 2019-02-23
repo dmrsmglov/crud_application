@@ -1,4 +1,4 @@
-package ru.damit.client.usecases.displayposts.view
+package ru.damir.client.presentation.displayposts.view
 
 import android.support.v7.recyclerview.extensions.ListAdapter
 import android.support.v7.util.DiffUtil
@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import ru.damir.client.R
 
-import ru.damit.client.data.Post
+import ru.damir.client.repository.model.Post
 
 class NewsRecyclerViewAdapter : ListAdapter<Post, Holder>(DiffCallBack()) {
 

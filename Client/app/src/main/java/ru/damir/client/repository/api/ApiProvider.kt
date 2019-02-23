@@ -1,4 +1,4 @@
-package ru.damit.client.utils
+package ru.damir.client.repository.api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

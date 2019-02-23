@@ -1,13 +1,13 @@
-package ru.damit.client.usecases.displayposts.presenter
+package ru.damir.client.presentation.displayposts.presenter
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import ru.damit.client.data.Post
-import ru.damit.client.usecases.displayposts.view.NewsView
-import ru.damit.client.utils.ApiProvider
+import ru.damir.client.repository.model.Post
+import ru.damir.client.presentation.displayposts.view.NewsView
+import ru.damir.client.repository.api.ApiProvider
 
 @InjectViewState
 class NewsPresenter : MvpPresenter<NewsView>() {

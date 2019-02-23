@@ -1,6 +1,6 @@
-package ru.damit.client.usecases.displayposts.view
+package ru.damir.client.presentation.displayposts.view
 
-import ru.damit.client.SingleFragmentActivity
+import ru.damir.client.SingleFragmentActivity
 
 class NewsActivity : SingleFragmentActivity() {
 

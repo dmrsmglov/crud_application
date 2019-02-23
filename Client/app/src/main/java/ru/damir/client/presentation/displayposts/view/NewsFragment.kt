@@ -1,4 +1,4 @@
-package ru.damit.client.usecases.displayposts.view
+package ru.damir.client.presentation.displayposts.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,8 +11,8 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import kotlinx.android.synthetic.main.fragment_news.*
 import ru.damir.client.R
-import ru.damit.client.usecases.createnewpost.view.CreateNewPostActivity
-import ru.damit.client.usecases.displayposts.presenter.NewsPresenter
+import ru.damir.client.presentation.createnewpost.view.CreateNewPostActivity
+import ru.damir.client.presentation.displayposts.presenter.NewsPresenter
 
 class NewsFragment : MvpAppCompatFragment(), NewsView {
 

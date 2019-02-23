@@ -1,4 +1,4 @@
-package ru.damit.client
+package ru.damir.client
 
 import android.os.Bundle
 import android.support.v4.app.Fragment

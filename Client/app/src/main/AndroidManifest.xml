@@ -11,14 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="ru.damit.client.usecases.displayposts.view.NewsActivity">
+        <activity android:name="ru.damir.client.presentation.displayposts.view.NewsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="ru.damit.client.usecases.createnewpost.view.CreateNewPostActivity">
+        <activity android:name=".presentation.createnewpost.view.CreateNewPostActivity">
 
         </activity>
     </application>
