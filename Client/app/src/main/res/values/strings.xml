@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Client</string>
+    <string name="button_update">update</string>
+    <string name="hint_content">content</string>
+    <string name="hint_title">title</string>
+    <string name="create_new_post_text_view">Create new post</string>
+    <string name="post_button">post</string>
+    <string name="new_post_button">New</string>
+</resources>
