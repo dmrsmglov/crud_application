@@ -4,7 +4,10 @@
               android:orientation="horizontal"
               android:padding="8dp"
               android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+              android:layout_height="wrap_content"
+              android:visibility="visible"
+              android:gravity="start"
+              android:paddingEnd="8dp">
 
   <TextView
           android:id="@+id/title_text_view"

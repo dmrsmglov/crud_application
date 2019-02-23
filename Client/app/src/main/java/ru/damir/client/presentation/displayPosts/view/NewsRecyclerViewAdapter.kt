@@ -22,7 +22,9 @@ class NewsRecyclerViewAdapter : ListAdapter<Post, Holder>(DiffCallBack()) {
     override fun onBindViewHolder(holder: Holder, position: Int) {
         val item = getItem(position)
         holder.title.text = item.title
+        holder.title.visibility = View.VISIBLE
         holder.content.text = item.content
+        holder.content.visibility = View.VISIBLE
     }
 }
 
