@@ -18,22 +18,18 @@ import ru.damir.client.repository.model.Post
 class NewsFragment : MvpAppCompatFragment(), NewsView {
     private val newsRecyclerViewAdapter = NewsRecyclerViewAdapter()
 
+
+
     @InjectPresenter
     lateinit var presenter: NewsPresenter
 
     @ProvidePresenter
     fun providePresenter() = NewsPresenter()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_news, container, false)
-    }
-
-    override fun updateListPosts(list: List<Post>) {
-        newsRecyclerViewAdapter.submitList(list)
-    }
-
     override fun onStart() {
+
         super.onStart()
+        presenter.autoUpdate()
 
         fetchDataButton.setOnClickListener {
             presenter.fetchButtonClick()
@@ -46,5 +42,18 @@ class NewsFragment : MvpAppCompatFragment(), NewsView {
             val intent = Intent(this.context, CreateNewPostActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        presenter.stopAutoUpdateExecution = true
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_news, container, false)
+    }
+
+    override fun updateListPosts(list: List<Post>) {
+        newsRecyclerViewAdapter.submitList(list)
     }
 }
