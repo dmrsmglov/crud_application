@@ -14,16 +14,13 @@ class NewsPresenter : MvpPresenter<NewsView>() {
 
     val api = ApiProvider.api
 
-    fun fetchButtonClick(callback: (List<Post>) -> Unit) {
+    fun fetchButtonClick() {
         api.getAllPosts().enqueue(object : Callback<List<Post>> {
-            override fun onFailure(call: Call<List<Post>>, t: Throwable) {
+            override fun onFailure(call: Call<List<Post>>, t: Throwable) =
                 t.printStackTrace()
-            }
 
-            override fun onResponse(call: Call<List<Post>>, response: Response<List<Post>>) {
-                System.out.println(response.body()!!.size)
-                callback(response.body()!!)
-            }
+            override fun onResponse(call: Call<List<Post>>, response: Response<List<Post>>) =
+                viewState.updateListPosts(response.body()!!)
         })
     }
 }

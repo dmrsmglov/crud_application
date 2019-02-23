@@ -13,9 +13,9 @@ import kotlinx.android.synthetic.main.fragment_news.*
 import ru.damir.client.R
 import ru.damir.client.presentation.createnewpost.view.CreateNewPostActivity
 import ru.damir.client.presentation.displayposts.presenter.NewsPresenter
+import ru.damir.client.repository.model.Post
 
 class NewsFragment : MvpAppCompatFragment(), NewsView {
-
     private val newsRecyclerViewAdapter = NewsRecyclerViewAdapter()
 
     @InjectPresenter
@@ -28,13 +28,15 @@ class NewsFragment : MvpAppCompatFragment(), NewsView {
         return inflater.inflate(R.layout.fragment_news, container, false)
     }
 
+    override fun updateListPosts(list: List<Post>) {
+        newsRecyclerViewAdapter.submitList(list)
+    }
+
     override fun onStart() {
         super.onStart()
 
         fetchDataButton.setOnClickListener {
-            presenter.fetchButtonClick {
-                newsRecyclerViewAdapter.submitList(it)
-            }
+            presenter.fetchButtonClick()
         }
 
         newsRecyclerView.layoutManager = LinearLayoutManager(context)
