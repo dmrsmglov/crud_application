@@ -27,16 +27,16 @@ class CreateNewPostFragment : MvpAppCompatFragment(), CreateNewPostView {
         super.onStart()
 
         postButton.setOnClickListener {
-
             if (isValid()) {
                 presenter.newPostCreate(getTitle(), getContent())
+                newPostContentMultilineText.text.clear()
+                newPostTitlePlainText.text.clear()
             }
-
         }
     }
 
     private fun isValid(): Boolean {
-        return newPostTitlePlainText.isDirty && newPostContentMultilineText.isDirty
+        return newPostContentMultilineText.text.toString() != "" && newPostTitlePlainText.text.toString() != ""
     }
 
     private fun getContent(): String {

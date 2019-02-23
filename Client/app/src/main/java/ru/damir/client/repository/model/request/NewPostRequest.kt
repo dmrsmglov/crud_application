@@ -1,4 +1,6 @@
 package ru.damir.client.repository.model.request
 
-class Post {
-}
+data class NewPostRequest (
+    var title: String,
+    var content: String
+)
