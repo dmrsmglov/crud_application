@@ -1,4 +1,4 @@
-package ru.damir.client.presentation.createNewPost.view
+package ru.damit.client.usecases.createnewpost.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import kotlinx.android.synthetic.main.fragment_create_new_post.*
 import ru.damir.client.R
-import ru.damir.client.presentation.createNewPost.presenter.CreateNewPostPresenter
+import ru.damit.client.usecases.createnewpost.presenter.CreateNewPostPresenter
 
 class CreateNewPostFragment : MvpAppCompatFragment(), CreateNewPostView {
 

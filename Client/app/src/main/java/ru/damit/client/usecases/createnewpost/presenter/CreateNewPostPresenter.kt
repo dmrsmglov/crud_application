@@ -1,4 +1,4 @@
-package ru.damir.client.presentation.createNewPost.presenter
+package ru.damit.client.usecases.createnewpost.presenter
 
 import android.util.Log
 import com.arellomobile.mvp.InjectViewState
@@ -6,9 +6,9 @@ import com.arellomobile.mvp.MvpPresenter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import ru.damir.client.presentation.createNewPost.view.CreateNewPostView
-import ru.damir.client.presentation.data.Post
-import ru.damir.client.presentation.utils.ApiProvider
+import ru.damit.client.usecases.createnewpost.view.CreateNewPostView
+import ru.damit.client.data.Post
+import ru.damit.client.utils.ApiProvider
 
 @InjectViewState
 class CreateNewPostPresenter : MvpPresenter<CreateNewPostView>() {

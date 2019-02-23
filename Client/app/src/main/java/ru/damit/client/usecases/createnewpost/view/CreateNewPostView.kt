@@ -1,4 +1,4 @@
-package ru.damir.client.presentation.createNewPost.view
+package ru.damit.client.usecases.createnewpost.view
 
 import com.arellomobile.mvp.MvpView
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy

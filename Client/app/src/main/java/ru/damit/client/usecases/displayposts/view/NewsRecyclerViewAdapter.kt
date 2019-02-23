@@ -1,4 +1,4 @@
-package ru.damir.client.presentation.displayPosts.view
+package ru.damit.client.usecases.displayposts.view
 
 import android.support.v7.recyclerview.extensions.ListAdapter
 import android.support.v7.util.DiffUtil
@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import ru.damir.client.R
 
-import ru.damir.client.presentation.data.Post
+import ru.damit.client.data.Post
 
 class NewsRecyclerViewAdapter : ListAdapter<Post, Holder>(DiffCallBack()) {
 
@@ -22,9 +22,7 @@ class NewsRecyclerViewAdapter : ListAdapter<Post, Holder>(DiffCallBack()) {
     override fun onBindViewHolder(holder: Holder, position: Int) {
         val item = getItem(position)
         holder.title.text = item.title
-        holder.title.visibility = View.VISIBLE
         holder.content.text = item.content
-        holder.content.visibility = View.VISIBLE
     }
 }
 
@@ -34,7 +32,7 @@ class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 }
 
 internal class DiffCallBack : DiffUtil.ItemCallback<Post>() {
-    override fun areItemsTheSame(p0: Post, p1: Post) = p0 === p1
+    override fun areItemsTheSame(p0: Post, p1: Post) = p0.id == p1.id
 
     override fun areContentsTheSame(p0: Post, p1: Post) = p0 == p1
 }

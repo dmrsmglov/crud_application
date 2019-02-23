@@ -1,4 +1,4 @@
-package ru.damir.client.presentation.data
+package ru.damit.client.data
 
 data class Post(
     var id: Int,

@@ -1,4 +1,4 @@
-package ru.damir.client.presentation.displayPosts.view
+package ru.damit.client.usecases.displayposts.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,16 +11,12 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import kotlinx.android.synthetic.main.fragment_news.*
 import ru.damir.client.R
-import ru.damir.client.presentation.createNewPost.view.CreateNewPostActivity
-import ru.damir.client.presentation.displayPosts.presenter.NewsPresenter
+import ru.damit.client.usecases.createnewpost.view.CreateNewPostActivity
+import ru.damit.client.usecases.displayposts.presenter.NewsPresenter
 
 class NewsFragment : MvpAppCompatFragment(), NewsView {
 
     private val newsRecyclerViewAdapter = NewsRecyclerViewAdapter()
-
-    override fun setText(text: String) {
-
-    }
 
     @InjectPresenter
     lateinit var presenter: NewsPresenter
