@@ -5,7 +5,7 @@ import com.arellomobile.mvp.MvpPresenter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import ru.damir.client.repository.model.Post
+import ru.damir.client.repository.model.response.PostResponse
 import ru.damir.client.presentation.displayposts.view.NewsView
 import ru.damir.client.repository.api.ApiProvider
 
@@ -19,27 +19,35 @@ class NewsPresenter : MvpPresenter<NewsView>() {
     @Synchronized
     private fun updatePostList() {
 
-        api.getAllPosts().enqueue(object : Callback<List<Post>> {
-            override fun onFailure(call: Call<List<Post>>, t: Throwable) =
+        api.getAllPosts().enqueue(object : Callback<List<PostResponse>> {
+            override fun onFailure(call: Call<List<PostResponse>>, t: Throwable) =
                 t.printStackTrace()
 
-            override fun onResponse(call: Call<List<Post>>, response: Response<List<Post>>) =
+            override fun onResponse(call: Call<List<PostResponse>>, response: Response<List<PostResponse>>) =
                 viewState.updateListPosts(response.body()!!)
         })
     }
 
-    fun autoUpdate() {
-        if (!stopAutoUpdateExecution) {
-            Thread {
-                while (!stopAutoUpdateExecution) {
-                    Thread.sleep(1000)
-                    updatePostList()
-                }
-            }.start()
-        }
+    private fun autoUpdate() {
+        Thread {
+            while (!stopAutoUpdateExecution) {
+                updatePostList()
+                Thread.sleep(1000)
+            }
+        }.start()
     }
 
     fun fetchButtonClick() {
         updatePostList()
+    }
+
+    override fun onFirstViewAttach() {
+        super.onFirstViewAttach()
+        autoUpdate()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        stopAutoUpdateExecution = true
     }
 }

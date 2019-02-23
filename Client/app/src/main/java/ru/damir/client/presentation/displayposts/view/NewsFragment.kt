@@ -13,12 +13,10 @@ import kotlinx.android.synthetic.main.fragment_news.*
 import ru.damir.client.R
 import ru.damir.client.presentation.createnewpost.view.CreateNewPostActivity
 import ru.damir.client.presentation.displayposts.presenter.NewsPresenter
-import ru.damir.client.repository.model.Post
+import ru.damir.client.repository.model.response.PostResponse
 
 class NewsFragment : MvpAppCompatFragment(), NewsView {
     private val newsRecyclerViewAdapter = NewsRecyclerViewAdapter()
-
-
 
     @InjectPresenter
     lateinit var presenter: NewsPresenter
@@ -29,7 +27,6 @@ class NewsFragment : MvpAppCompatFragment(), NewsView {
     override fun onStart() {
 
         super.onStart()
-        presenter.autoUpdate()
 
         fetchDataButton.setOnClickListener {
             presenter.fetchButtonClick()
@@ -44,16 +41,11 @@ class NewsFragment : MvpAppCompatFragment(), NewsView {
         }
     }
 
-    override fun onStop() {
-        super.onStop()
-        presenter.stopAutoUpdateExecution = true
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_news, container, false)
     }
 
-    override fun updateListPosts(list: List<Post>) {
+    override fun updateListPosts(list: List<PostResponse>) {
         newsRecyclerViewAdapter.submitList(list)
     }
 }
