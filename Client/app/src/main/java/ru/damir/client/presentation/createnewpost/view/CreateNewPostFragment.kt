@@ -35,6 +35,8 @@ class CreateNewPostFragment : MvpAppCompatFragment(), CreateNewPostView {
         }
     }
 
+
+
     private fun isValid(): Boolean {
         return newPostContentMultilineText.text.toString() != "" && newPostTitlePlainText.text.toString() != ""
     }

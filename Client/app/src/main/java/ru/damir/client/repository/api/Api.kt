@@ -8,7 +8,7 @@ import ru.damir.client.repository.model.response.PostResponse
 interface Api {
 
     @POST(value = "/posts/new")
-    fun sendPost(@Body post: NewPostRequest) : Call<PostResponse>
+    fun sendPost(@Body post: NewPostRequest) : Call<Unit>
 
     @GET("/posts/{id}")
     fun getPost(@Path(value = "id") id: Int): Call<PostResponse>

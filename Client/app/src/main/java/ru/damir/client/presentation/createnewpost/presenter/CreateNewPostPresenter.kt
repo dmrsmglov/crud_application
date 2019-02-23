@@ -18,12 +18,12 @@ class CreateNewPostPresenter : MvpPresenter<CreateNewPostView>() {
 
     fun newPostCreate(title: String, content: String) {
 
-        api.sendPost(NewPostRequest(title, content)).enqueue(object : Callback<PostResponse> {
-            override fun onFailure(call: Call<PostResponse>, t: Throwable) {
-                Log.w("POST", "unable to submit post to API.")
+        api.sendPost(NewPostRequest(title, content)).enqueue(object : Callback<Unit> {
+            override fun onFailure(call: Call<Unit>, t: Throwable) {
+                Log.e("POST", "unable to submit post to API.")
             }
-            override fun onResponse(call: Call<PostResponse>, response: Response<PostResponse>) {
-                Log.i("POST", "post submitted to API. " + response.body()?.title)
+            override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                Log.i("POST", "post submitted to API.")
             }
         })
     }

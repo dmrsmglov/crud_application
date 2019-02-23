@@ -14,11 +14,14 @@ class PostsController(private val postService: PostService) {
 
     @GetMapping("/all")
     fun displayAllPosts() : List<PostResponse>  {
-        System.out.println("********request********")
+        System.out.println("********request: display all********")
         return postService.all()
     }
 
 
     @PostMapping("/new")
-    fun newPost(@Valid @RequestBody postRequest: PostRequest) = postService.save(postRequest)
+    fun newPost(@Valid @RequestBody postRequest: PostRequest) {
+        System.out.println("********request: save post********")
+        postService.save(postRequest)
+    }
 }
