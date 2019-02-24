@@ -1,11 +1,7 @@
 package ru.damir.server.controllers.request
 
-import javax.validation.constraints.NotNull
-
-class PostRequest (
-        @field:NotNull
+data class PostRequest(
+        var id: Int,
         var title: String,
-
-        @field:NotNull
-        var content : String
+        var content: String
 )
