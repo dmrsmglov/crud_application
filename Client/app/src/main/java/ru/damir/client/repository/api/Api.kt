@@ -2,17 +2,16 @@ package ru.damir.client.repository.api
 
 import retrofit2.Call
 import retrofit2.http.*
-import ru.damir.client.repository.model.request.NewPostRequest
-import ru.damir.client.repository.model.response.PostResponse
+import ru.damir.client.repository.model.Post
 
 interface Api {
 
     @POST(value = "/posts/new")
-    fun sendPost(@Body post: NewPostRequest) : Call<Unit>
+    fun sendPost(@Body post: Post): Call<Unit>
 
     @GET("/posts/{id}")
-    fun getPost(@Path(value = "id") id: Int): Call<PostResponse>
+    fun getPost(@Path(value = "id") id: Int): Call<Post>
 
     @GET("/posts/all")
-    fun getAllPosts() : Call<List<PostResponse>>
+    fun getAllPosts(): Call<List<Post>>
 }

@@ -6,4 +6,5 @@
     <string name="create_new_post_text_view">Create new post</string>
     <string name="post_button">post</string>
     <string name="new_post_button">New</string>
+    <string name="post_id">POST_ID</string>
 </resources>

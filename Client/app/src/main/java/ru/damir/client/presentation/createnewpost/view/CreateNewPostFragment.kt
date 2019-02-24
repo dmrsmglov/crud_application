@@ -31,6 +31,7 @@ class CreateNewPostFragment : MvpAppCompatFragment(), CreateNewPostView {
                 presenter.newPostCreate(getTitle(), getContent())
                 newPostContentMultilineText.text.clear()
                 newPostTitlePlainText.text.clear()
+                activity?.finish()
             }
         }
     }

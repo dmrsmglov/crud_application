@@ -9,9 +9,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import ru.damir.client.R
 
-import ru.damir.client.repository.model.response.PostResponse
+import ru.damir.client.repository.model.Post
 
-class NewsRecyclerViewAdapter : ListAdapter<PostResponse, Holder>(DiffCallBack()) {
+class NewsRecyclerViewAdapter(val callBack: (Post) -> Unit) : ListAdapter<Post, Holder>(DiffCallBack()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(parent.context)
@@ -23,16 +23,20 @@ class NewsRecyclerViewAdapter : ListAdapter<PostResponse, Holder>(DiffCallBack()
         val item = getItem(position)
         holder.title.text = item.title
         holder.content.text = item.content
+        holder.holderBackground.setOnClickListener {
+            callBack(item)
+        }
     }
 }
 
 class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val title: TextView = itemView.findViewById(R.id.title_text_view)
     val content: TextView = itemView.findViewById(R.id.content_text_view)
+    val holderBackground : View = itemView.findViewById(R.id.holder_background)
 }
 
-internal class DiffCallBack : DiffUtil.ItemCallback<PostResponse>() {
-    override fun areItemsTheSame(p0: PostResponse, p1: PostResponse) = p0.id == p1.id
+internal class DiffCallBack : DiffUtil.ItemCallback<Post>() {
+    override fun areItemsTheSame(p0: Post, p1: Post) = p0.id == p1.id
 
-    override fun areContentsTheSame(p0: PostResponse, p1: PostResponse) = p0 == p1
+    override fun areContentsTheSame(p0: Post, p1: Post) = p0 == p1
 }

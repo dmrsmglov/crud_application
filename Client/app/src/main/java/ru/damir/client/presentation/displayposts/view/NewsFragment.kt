@@ -13,10 +13,18 @@ import kotlinx.android.synthetic.main.fragment_news.*
 import ru.damir.client.R
 import ru.damir.client.presentation.createnewpost.view.CreateNewPostActivity
 import ru.damir.client.presentation.displayposts.presenter.NewsPresenter
-import ru.damir.client.repository.model.response.PostResponse
+import ru.damir.client.presentation.postdetails.view.PostDetailsActivity
+import ru.damir.client.repository.model.Post
 
 class NewsFragment : MvpAppCompatFragment(), NewsView {
-    private val newsRecyclerViewAdapter = NewsRecyclerViewAdapter()
+
+    override fun openPostDetails(post: Post) {
+        val intent = Intent(this.context, PostDetailsActivity::class.java)
+        intent.putExtra("POST_ID", post.id)
+        startActivity(intent)
+    }
+
+    val newsRecyclerViewAdapter = NewsRecyclerViewAdapter{presenter.postItemClicked(it)}
 
     @InjectPresenter
     lateinit var presenter: NewsPresenter
@@ -35,6 +43,8 @@ class NewsFragment : MvpAppCompatFragment(), NewsView {
         newsRecyclerView.layoutManager = LinearLayoutManager(context)
         newsRecyclerView.adapter = newsRecyclerViewAdapter
 
+
+
         newPostButton.setOnClickListener {
             val intent = Intent(this.context, CreateNewPostActivity::class.java)
             startActivity(intent)
@@ -45,7 +55,7 @@ class NewsFragment : MvpAppCompatFragment(), NewsView {
         return inflater.inflate(R.layout.fragment_news, container, false)
     }
 
-    override fun updateListPosts(list: List<PostResponse>) {
+    override fun updateListPosts(list: List<Post>) {
         newsRecyclerViewAdapter.submitList(list)
     }
 }
