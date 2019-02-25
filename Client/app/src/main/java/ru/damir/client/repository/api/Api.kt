@@ -14,4 +14,7 @@ interface Api {
 
     @GET("/posts/all")
     fun getAllPosts(): Call<List<Post>>
+
+    @POST("/posts/delete/{id}")
+    fun deletePostById(@Path(value = "id") id: Int) : Call<Unit>
 }

@@ -22,7 +22,11 @@ class PostDetailsFragment : MvpAppCompatFragment(), PostDetailsView{
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        return true
+        if (item?.itemId == R.id.delete_post_optionsmenu_item) {
+            presenter.deletePost()
+            activity?.finish()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     @InjectPresenter

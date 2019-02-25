@@ -13,6 +13,8 @@ import ru.damir.client.repository.model.Post
 @InjectViewState
 class PostDetailsPresenter : MvpPresenter<PostDetailsView>() {
 
+    var post: Post? = null
+
     val api = ApiProvider.api
 
     fun findPostById(postId: Int?) {
@@ -25,7 +27,23 @@ class PostDetailsPresenter : MvpPresenter<PostDetailsView>() {
                 }
 
                 override fun onResponse(call: Call<Post>, response: Response<Post>) {
-                    viewState.injectPostDetailsInViews(response.body()!!)
+                    post = response.body()
+                    viewState.injectPostDetailsInViews(post!!)
+                }
+            })
+        }
+    }
+
+    fun deletePost() {
+
+        if (post != null) {
+            api.deletePostById(post!!.id).enqueue(object : Callback<Unit> {
+                override fun onFailure(call: Call<Unit>, t: Throwable) {
+                    Log.e("POST", "unable to delete post by post id")
+                }
+
+                override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                    Log.i("POST", "post deleted, post id = " + post!!.id)
                 }
             })
         }
