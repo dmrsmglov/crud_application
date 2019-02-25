@@ -24,8 +24,10 @@ class NewsPresenter : MvpPresenter<NewsView>() {
             override fun onFailure(call: Call<List<Post>>, t: Throwable) =
                 t.printStackTrace()
 
-            override fun onResponse(call: Call<List<Post>>, response: Response<List<Post>>) =
-                viewState.updateListPosts(response.body()!!)
+            override fun onResponse(call: Call<List<Post>>, response: Response<List<Post>>) {
+                Log.i("POST_LIST_SIZE", response.body()?.size.toString())
+                viewState.updateListPosts(response.body())
+            }
         })
     }
 

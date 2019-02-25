@@ -1,9 +1,7 @@
 package ru.damir.client.presentation.postdetails.view
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
@@ -19,6 +17,14 @@ class PostDetailsFragment : MvpAppCompatFragment(), PostDetailsView{
         content_post_details_textview.text = post.content
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        inflater!!.inflate(R.menu.post_details_options_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        return true
+    }
+
     @InjectPresenter
     lateinit var presenter : PostDetailsPresenter
 
@@ -26,6 +32,7 @@ class PostDetailsFragment : MvpAppCompatFragment(), PostDetailsView{
     fun providePresenter() = PostDetailsPresenter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        setHasOptionsMenu(true)
         return inflater.inflate(R.layout.fragment_post_details, container, false)
     }
 

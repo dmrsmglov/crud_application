@@ -7,4 +7,6 @@
     <string name="post_button">post</string>
     <string name="new_post_button">New</string>
     <string name="post_id">POST_ID</string>
+    <string name="delete_post">Delete</string>
+    <string name="update_post">Update</string>
 </resources>
