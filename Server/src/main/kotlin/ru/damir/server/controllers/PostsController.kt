@@ -24,8 +24,12 @@ class PostsController(private val postService: PostService) {
 
     @PostMapping("/delete/{id}")
     fun deletePostById(@PathVariable id: Int) {
-        System.out.println("Request delete id = " + id)
         postService.deletePostById(id)
+    }
+
+    @PostMapping("/update")
+    fun updatePost(@Valid @RequestBody postRequest: PostRequest) {
+        postService.updatePost(postRequest)
     }
 
     @GetMapping("/search/{id}")

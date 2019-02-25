@@ -20,7 +20,8 @@ class PostDtoMapper {
     }
 
     fun toModel(postRequest: PostRequest) =
-            Post(
-                    title = postRequest.title,
-                    content = postRequest.content)
+        Post(
+                title = postRequest.title,
+                content = postRequest.content)
+
 }
