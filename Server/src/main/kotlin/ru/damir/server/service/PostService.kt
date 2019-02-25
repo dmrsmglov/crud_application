@@ -20,4 +20,8 @@ class PostService (private val postsRepo: PostsRepo,
 
     fun findPostById(id: Int): PostResponse? = mapper.fromModel(postsRepo.findPostById(id))
 
+    fun deletePostById(id: Int) {
+        postsRepo.deletePostById(id)
+    }
+
 }

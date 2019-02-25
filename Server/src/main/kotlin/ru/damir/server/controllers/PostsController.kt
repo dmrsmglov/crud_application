@@ -17,10 +17,15 @@ class PostsController(private val postService: PostService) {
         return postService.all()
     }
 
-
     @PostMapping("/new")
     fun newPost(@Valid @RequestBody postRequest: PostRequest) {
         postService.save(postRequest)
+    }
+
+    @PostMapping("/delete/{id}")
+    fun deletePostById(@PathVariable id: Int) {
+        System.out.println("Request delete id = " + id)
+        postService.deletePostById(id)
     }
 
     @GetMapping("/search/{id}")
