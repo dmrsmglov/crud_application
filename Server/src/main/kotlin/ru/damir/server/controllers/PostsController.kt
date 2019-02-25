@@ -23,8 +23,8 @@ class PostsController(private val postService: PostService) {
         postService.save(postRequest)
     }
 
-    @GetMapping("/search")
-    fun getPostById(@RequestParam id: Int): PostResponse? {
+    @GetMapping("/search/{id}")
+    fun getPostById(@PathVariable id: Int): PostResponse? {
         return postService.findPostById(id)
     }
 }
