@@ -55,7 +55,7 @@ class NewsFragment : MvpAppCompatFragment(), NewsView {
         return inflater.inflate(R.layout.fragment_news, container, false)
     }
 
-    override fun updateListPosts(list: List<Post>) {
+    override fun updateListPosts(list: List<Post>?) {
         newsRecyclerViewAdapter.submitList(list)
     }
 }

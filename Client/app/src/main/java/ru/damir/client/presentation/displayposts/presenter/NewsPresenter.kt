@@ -1,5 +1,6 @@
 package ru.damir.client.presentation.displayposts.presenter
 
+import android.util.Log
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import retrofit2.Call

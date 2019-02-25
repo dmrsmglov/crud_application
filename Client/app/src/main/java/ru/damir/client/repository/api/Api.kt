@@ -9,7 +9,7 @@ interface Api {
     @POST(value = "/posts/new")
     fun sendPost(@Body post: Post): Call<Unit>
 
-    @GET("/posts/{id}")
+    @GET("/posts/search/{id}")
     fun getPost(@Path(value = "id") id: Int): Call<Post>
 
     @GET("/posts/all")
