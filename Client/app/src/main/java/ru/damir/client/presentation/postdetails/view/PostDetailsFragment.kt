@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.fragment_post_details.*
 import ru.damir.client.R
 import ru.damir.client.presentation.createnewpost.view.CreateNewPostActivity
 import ru.damir.client.presentation.postdetails.presenter.PostDetailsPresenter
-import ru.damir.client.repository.model.Post
+import ru.damir.client.data.model.Post
 
 class PostDetailsFragment : MvpAppCompatFragment(), PostDetailsView {
 

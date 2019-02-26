@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import ru.damir.client.R
 
-import ru.damir.client.repository.model.Post
+import ru.damir.client.data.model.Post
 
 class NewsRecyclerViewAdapter(val callBack: (Post) -> Unit) : ListAdapter<Post, Holder>(DiffCallBack()) {
 

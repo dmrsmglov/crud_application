@@ -14,7 +14,7 @@ import ru.damir.client.R
 import ru.damir.client.presentation.createnewpost.view.CreateNewPostActivity
 import ru.damir.client.presentation.displayposts.presenter.NewsPresenter
 import ru.damir.client.presentation.postdetails.view.PostDetailsActivity
-import ru.damir.client.repository.model.Post
+import ru.damir.client.data.model.Post
 
 class NewsFragment : MvpAppCompatFragment(), NewsView {
 

@@ -1,8 +1,8 @@
-package ru.damir.client.repository.api
+package ru.damir.client.data.api
 
 import retrofit2.Call
 import retrofit2.http.*
-import ru.damir.client.repository.model.Post
+import ru.damir.client.data.model.Post
 
 interface Api {
 
