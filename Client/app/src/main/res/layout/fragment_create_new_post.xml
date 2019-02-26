@@ -38,14 +38,14 @@
             android:layout_marginStart="20dp"
             app:layout_constraintStart_toStartOf="parent"
             android:hint="@string/hint_title"
-            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/create_update_post_text_view"
             android:importantForAutofill="no"
             />
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:id="@+id/textView6"
+            android:id="@+id/create_update_post_text_view"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="20dp"
             android:layout_marginTop="24dp"

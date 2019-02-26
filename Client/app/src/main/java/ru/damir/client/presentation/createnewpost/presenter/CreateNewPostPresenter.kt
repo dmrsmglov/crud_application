@@ -26,4 +26,16 @@ class CreateNewPostPresenter : MvpPresenter<CreateNewPostView>() {
             }
         })
     }
+
+    fun postUpdate(id: Int, title: String, content: String) {
+
+        api.updatePost(Post(id, title, content)).enqueue(object : Callback<Unit> {
+            override fun onFailure(call: Call<Unit>, t: Throwable) {
+                Log.e("POST", "unable to update post.")
+            }
+            override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                Log.i("POST", "post updated.")
+            }
+        })
+    }
 }

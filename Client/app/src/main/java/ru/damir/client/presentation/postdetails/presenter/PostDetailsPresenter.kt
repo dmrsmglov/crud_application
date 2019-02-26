@@ -48,4 +48,10 @@ class PostDetailsPresenter : MvpPresenter<PostDetailsView>() {
             })
         }
     }
+
+    fun updatePost() {
+        if (post != null) {
+            viewState.updatePost(post!!)
+        }
+    }
 }

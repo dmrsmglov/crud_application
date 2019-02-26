@@ -43,8 +43,6 @@ class NewsFragment : MvpAppCompatFragment(), NewsView {
         newsRecyclerView.layoutManager = LinearLayoutManager(context)
         newsRecyclerView.adapter = newsRecyclerViewAdapter
 
-
-
         newPostButton.setOnClickListener {
             val intent = Intent(this.context, CreateNewPostActivity::class.java)
             startActivity(intent)
