@@ -14,12 +14,15 @@ class PostDetailsPresenter : MvpPresenter<PostDetailsView>() {
     private val repo = Repo()
 
     fun findPostById(postId: Int?) {
-        post = repo.findPostById(postId)
-        if (post != null) {
-            viewState.injectPostDetailsInViews(post!!)
+        if (postId != null) {
+            repo.findPostById(postId, this::setAndShowPost)
         }
     }
 
+    fun setAndShowPost(post : Post?) {
+        this.post = post
+        viewState.injectPostDetailsInViews(post)
+    }
     fun deletePost() {
         if (post != null) {
             repo.deletePost(post!!)

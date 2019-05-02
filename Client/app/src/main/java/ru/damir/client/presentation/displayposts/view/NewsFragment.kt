@@ -3,6 +3,7 @@ package ru.damir.client.presentation.displayposts.view
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -53,7 +54,8 @@ class NewsFragment : MvpAppCompatFragment(), NewsView {
         return inflater.inflate(R.layout.fragment_news, container, false)
     }
 
-    override fun updateListPosts(list: List<Post>?) {
+    override fun updateListPosts(list: List<Post>) {
+        Log.i("Update", "view")
         newsRecyclerViewAdapter.submitList(list)
     }
 }

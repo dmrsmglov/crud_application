@@ -8,6 +8,6 @@ import ru.damir.client.data.model.Post
 
 @StateStrategyType(AddToEndSingleStrategy::class)
 interface PostDetailsView : MvpView {
-    fun injectPostDetailsInViews(post : Post)
+    fun injectPostDetailsInViews(post : Post?)
     fun updatePost(post: Post)
 }

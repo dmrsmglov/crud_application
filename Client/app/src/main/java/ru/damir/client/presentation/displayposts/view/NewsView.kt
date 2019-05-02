@@ -7,6 +7,7 @@ import ru.damir.client.data.model.Post
 
 @StateStrategyType(AddToEndSingleStrategy::class)
 interface NewsView : MvpView {
-    fun updateListPosts(list: List<Post>?)
+
+    fun updateListPosts(list: List<Post>)
     fun openPostDetails(post: Post)
 }

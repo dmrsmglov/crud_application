@@ -22,9 +22,11 @@ class PostDetailsFragment : MvpAppCompatFragment(), PostDetailsView {
         startActivity(intent)
     }
 
-    override fun injectPostDetailsInViews(post: Post) {
-        title_post_details_textview.text = post.title
-        content_post_details_textview.text = post.content
+    override fun injectPostDetailsInViews(post: Post?) {
+        if (post != null) {
+            title_post_details_textview.text = post.title
+            content_post_details_textview.text = post.content
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {

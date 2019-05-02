@@ -33,22 +33,25 @@ class Repo {
         })
     }
 
-    fun updatePostList() : List<Post>? {
-        var newPostList : List<Post>? = null
+    fun updatePostList(onLoad : (List<Post>) -> Unit) {
+
         api.getAllPosts().enqueue(object : Callback<List<Post>> {
-            override fun onFailure(call: Call<List<Post>>, t: Throwable) =
+            override fun onFailure(call: Call<List<Post>>, t: Throwable) {
                 t.printStackTrace()
+            }
 
             override fun onResponse(call: Call<List<Post>>, response: Response<List<Post>>) {
                 Log.i("POST_LIST_SIZE", response.body()?.size.toString())
-                newPostList = response.body()
+                if (response.body() != null) {
+                    onLoad(response.body()!!)
+                } else {
+                    onLoad(listOf())
+                }
             }
         })
-        return newPostList
     }
 
-    fun findPostById(postId : Int?) : Post? {
-        var post : Post? = null
+    fun findPostById(postId : Int?, onLoad: (Post?) -> Unit){
         if (postId != null) {
             api.getPost(postId).enqueue(object : Callback<Post> {
 
@@ -57,11 +60,10 @@ class Repo {
                 }
 
                 override fun onResponse(call: Call<Post>, response: Response<Post>) {
-                    post = response.body()
+                    onLoad(response.body())
                 }
             })
         }
-        return post
     }
 
     fun deletePost(post: Post) {

@@ -15,8 +15,9 @@ class NewsPresenter : MvpPresenter<NewsView>() {
 
     @Synchronized
     private fun updatePostList() {
-        viewState.updateListPosts(repo.updatePostList())
+        repo.updatePostList(viewState::updateListPosts)
     }
+
 
     private fun autoUpdate() {
         Thread {
